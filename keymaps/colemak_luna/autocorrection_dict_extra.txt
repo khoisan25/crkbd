@@ -1,0 +1,308 @@
+# Copyright 2021 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+#
+# This is a larger example typo dictionary containing 400 entries. It builds to
+# a table of about 6000 bytes, so you'll need a keyboard with a generous
+# amount of free firmware space to use the full dictionary. Alternatively, pick
+# out a subset of entries to a separate file, then build a table from that.
+#
+# Dictionary syntax:
+# Each line of this file defines one typo correction entry with the syntax
+# "typo -> correction". Typos and corrections are case insensitive, and any
+# whitespace before or after the typo and correction is ignored. The typo must be
+# only the letters a-z, or the special character : representing a word break.
+#
+# For documentation about how to use this dictionary, see
+# https://getreuer.info/posts/keyboards/autocorrection
+#
+# Further resources:
+#  * Wikipedia has a large list of common typos at
+#    https://en.wikipedia.org/wiki/Wikipedia:Lists_of_common_misspellings/For_machines
+#
+#  * EmacsWiki has another list of typos at
+#    https://www.emacswiki.org/emacs/autocorrection_abbrev_defs
+#
+#  * You can find data on English word frequencies at
+#    https://www.wordfrequency.info/samples.asp
+
+
+## 10 most common words.
+# The words "there", "about", "their", "would", "people", "which", "could",
+# "think", "other", and "because" are among the most common words in English
+# that are 5 letters or longer. (We don't include entries for words shorter than
+# that to avoid false triggering.)
+:htere        -> there
+abbout        -> about
+abotu         -> about
+baout         -> about
+:theri        -> their
+:thier        -> their
+:owudl        -> would
+woudl         -> would
+peaple        -> people
+peolpe        -> people
+peopel        -> people
+poeple        -> people
+poeople       -> people
+:hwihc        -> which
+whcih         -> which
+whihc         -> which
+whlch         -> which
+wihch         -> which
+coudl         -> could
+:htikn        -> think
+:htink        -> think
+thikn         -> think
+thiunk        -> think
+tihkn         -> think
+:olther       -> other
+:otehr        -> other
+baceause      -> because
+beacuse       -> because
+becasue       -> because
+beccause      -> because
+becouse       -> because
+becuase       -> because
+
+## Common words, 11-20.
+theese        -> these
+:goign        -> going
+:gonig        -> going
+:yaers        -> years
+:yeasr        -> years
+:thsoe        -> those
+shoudl        -> should
+raelly        -> really
+realy         -> really
+relaly        -> really
+bedore        -> before
+befoer        -> before
+littel        -> little
+beeing        -> being
+:hwile        -> while
+
+## Common words, 21-30.
+aroud         -> around
+arround       -> around
+arund         -> around
+thign         -> thing
+thigsn        -> things
+thnigs        -> things
+anohter       -> another
+beteen        -> between
+beween        -> between
+bewteen       -> between
+:eveyr        -> every
+:graet        -> great
+:agian        -> again
+:sicne        -> since
+alwasy        -> always
+alwyas        -> always
+throught      -> thought
+
+
+## Words especially susceptible to skipping or transposing a letter.
+# These entries are for words that are easy enough to spell, but not necessarily
+# easy to press the keys in the right order.
+# Catch misspellings of "achieves", "achieving", etc.
+:acheiv       -> achiev
+almsot        -> almost
+alomst        -> almost
+chnage        -> change
+chekc         -> check
+childen       -> children
+claer         -> clear
+comapny       -> company
+contian       -> contain
+elasped       -> elapsed
+feild         -> field
+fitler        -> filter
+firts         -> first
+follwo        -> follow
+:foudn        -> found
+frequecy      -> frequency
+firend        -> friend
+freind        -> friend
+heigth        -> height
+iamge         -> image
+inital        -> initial
+intput        -> input
+laguage       -> language
+lenght        -> length
+levle         -> level
+libary        -> library
+:moeny        -> money
+mysefl        -> myself
+ouptut        -> output
+ouput         -> output
+probaly       -> probably
+probelm       -> problem
+recrod        -> record
+reponse       -> response
+reprot        -> report
+singel        -> single
+stregth       -> strength
+strengh       -> strength
+tkaes         -> takes
+therfore      -> therefore
+todya         -> today
+toghether     -> together
+unkown        -> unknown
+unqiue        -> unique
+widht         -> width
+
+
+## Words with tricky spelling.
+# If you are a good speller, you could drop this section.
+aberation     -> aberration
+accross       -> across
+adviced       -> advised
+aledge        -> allege
+alledge       -> allege
+amature       -> amateur
+anomolous     -> anomalous
+anomoly       -> anomaly
+aparent       -> apparent
+aparrent      -> apparent
+apparant      -> apparent
+apparrent     -> apparent
+asthetic      -> aesthetic
+auxilary      -> auxiliary
+auxillary     -> auxiliary
+auxilliary    -> auxiliary
+bankrupcy     -> bankruptcy
+busness       -> business
+bussiness     -> business
+calander      -> calendar
+commitee      -> committee
+comittee      -> committee
+competance    -> competence
+competant     -> competent
+concensus     -> consensus
+cognizent     -> cognizant
+copywrite:    -> copyright
+choosen       -> chosen
+collegue      -> colleague
+excercise     -> exercise
+:grammer      -> grammar
+:guage        -> gauge
+guaratee      -> guarantee
+garantee      -> guarantee
+gaurantee     -> guarantee
+heirarchy     -> hierarchy
+hygeine       -> hygiene
+hypocracy     -> hypocrisy
+hypocrasy     -> hypocrisy
+hypocricy     -> hypocrisy
+hypocrit:     -> hypocrite
+looses:       -> loses
+maintence     -> maintenance
+morgage       -> mortgage
+neccesary     -> necessary
+necesary      -> necessary
+pallete       -> palette
+paralel       -> parallel
+priviledge    -> privilege
+proove        -> prove
+psuedo        -> pseudo
+reciept       -> receipt
+# Catch misspellings of "receives", "receiving", etc.
+receiev       -> receiv
+reciev        -> receiv
+recepient     -> recipient
+recipiant     -> recipient
+relevent      -> relevant
+repitition    -> repetition
+safty         -> safety
+saftey        -> safety
+# Catch misspellings of "separate", "separating", etc.
+seperat       -> separat
+spectogram    -> spectrogram
+symetric      -> symmetric
+tolerence     -> tolerance
+
+
+## Words particularly for coding.
+# Entries for common code keywords ("const") and terminology ("lookup").
+#cacheing      -> caching
+#complier      -> compiler
+#doulbe        -> double
+#dyanmic       -> dynamic
+# As in "execute", "executable", "executing", ...
+#excecut       -> execut
+#failse        -> false
+#fales         -> false
+#fasle         -> false
+#flase         -> false
+#indeces       -> indices
+#indecies      -> indices
+#indicies      -> indices
+#interator     -> iterator
+improt	      -> import
+imprt         -> import
+#looup         -> lookup
+namesapce     -> namespace
+namespcae     -> namespace
+#nulltpr       -> nullptr
+#operaotr      -> operator
+#overide       -> override
+#poitner       -> pointer
+#ovveride      -> override
+pirnt         -> print
+:rference     -> reference
+referece      -> reference
+singed        -> signed
+stirng        -> string
+strign        -> string
+swithc        -> switch
+swtich        -> switch
+#teamplate     -> template
+#tempalte      -> template
+:ture         -> true
+retrun        -> return
+retun         -> return
+reutrn        -> return
+cosnt         -> const
+#virutal       -> virtual
+#vitual        -> virtual
+yeild         -> yield
+
+
+
+## Various additional entries.
+:agred        -> agreed
+:ajust        -> adjust
+:anual        -> annual
+:asign        -> assign
+:aslo:        -> also
+:casue        -> cause
+:choses       -> chooses
+:gaurd        -> guard
+:haev         -> have
+:hapen        -> happen
+:idaes        -> ideas
+:jsut:        -> just
+:jstu:        -> just
+:knwo         -> know
+:konw         -> know
+:kwno         -> know
+:ocuntry      -> country
+:ocur         -> occur
+:socre        -> score
+:szie         -> size
+:the:the:     -> the
+:turth        -> truth
+:uesd:        -> used
+:usally       -> usually
